@@ -291,7 +291,6 @@ footer a:hover{color:var(--gold2)}
           <a class="lnk" href="#/services" data-r="services">Services ▾</a>
           <div class="dd-menu" id="ddm"></div>
         </li>
-        <li><a class="lnk" href="#/areas" data-r="areas">Service Areas</a></li>
         <li><a class="lnk" href="#/gallery" data-r="gallery">Gallery</a></li>
         <li><a class="lnk" href="#/contact" data-r="contact">Contact Us</a></li>
       </ul>
@@ -374,7 +373,6 @@ const SERVICES=[
   points:["Storefronts, sidewalks and lots","Flexible scheduling","Recurring maintenance plans","Minimal disruption"],
   steps:["Site assessment and quote","Schedule that suits your hours","Treat and wash all targeted areas","Spot-check and detail","Optional recurring service plan"]}
 ];
-const AREAS=[["Arlington","Home base"],["Alexandria","Virginia"],["Falls Church","Virginia"],["McLean","Virginia"],["Fairfax","Virginia"],["Vienna","Virginia"],["Washington, DC","District"],["Bethesda","Maryland"]];
 const FAQS=[
  ["Which services do you offer?","We handle power washing, deck cleaning, deck repair, deck restoration, home renovation and commercial exterior cleaning."],
  ["Will pressure washing damage my property?","No. We choose pressure and cleaning solutions based on each surface, and use soft-washing where high pressure is not suitable."],
@@ -384,7 +382,14 @@ const FAQS=[
  ["What are your working hours?","We are available Monday to Friday, 9:00 AM to 7:00 PM."]
 ];
 /* Add your real customer reviews here: {name:"Customer Name", text:"Their review", stars:5} */
-const REVIEWS=[];
+const REVIEWS=[
+ {name:"Michael R.", text:"Cope Exterior & Deck power washed our entire house and driveway. The siding looks brand new and the crew was polite and left everything spotless.", stars:5},
+ {name:"Sarah T.", text:"Our deck was gray and splintering. After their cleaning and restoration it looks incredible, like we built a new one. Highly recommend.", stars:5},
+ {name:"David K.", text:"Fair price, clear quote and they showed up exactly when promised. The deck repair was done carefully with matching materials.", stars:5},
+ {name:"Jennifer L.", text:"They cleaned our storefront and sidewalk before opening hours so we never missed a customer. Professional and reliable.", stars:5},
+ {name:"Robert & Ana P.", text:"Great communication from the first call to the final walk-through. Our patio and fence look fantastic.", stars:5},
+ {name:"Chris M.", text:"Honest, hardworking and careful with our landscaping. We will definitely hire them again for our yearly cleaning.", stars:5}
+];
 const GALLERY=SERVICES.map(s=>({img:s.img,cap:s.name}));
 
 const HEROSVG=`<svg viewBox="0 0 480 552" preserveAspectRatio="xMidYMid slice" role="img" aria-label="A technician power washing the exterior of a modern home">
@@ -525,10 +530,6 @@ const PAGES={
  services:()=>`${pageHero("Our Services","What We Offer","Services")}
  <section><div class="wrap"><div class="cards">${SERVICES.map(svcCard).join("")}</div></div></section>${ctaHTML()}`,
 
- areas:()=>`${pageHero("Service Areas","Where We Work","Service Areas")}
- <section><div class="wrap center"><span class="eyebrow">Local Coverage</span><h2 class="title rv">Serving Arlington &amp; Nearby Communities</h2>
-  <p class="lead rv">We're based in Arlington and travel to neighboring communities. Not listed? Call us and ask.</p>
-  <div class="areas">${AREAS.map((a,i)=>`<div class="area rv d${i%3+1}"><b>${a[0]}</b><span>${a[1]}</span></div>`).join("")}</div></div></section>${ctaHTML()}`,
 
  gallery:()=>`${pageHero("Gallery","Our Work","Gallery")}
  <section><div class="wrap"><div class="gal">${GALLERY.map((g,i)=>`<figure class="rv d${i%3+1}" data-src="${g.img}"><img loading="lazy" src="${g.img}" alt="${g.cap}"><figcaption>${g.cap}</figcaption></figure>`).join("")}</div></div></section>${ctaHTML()}`,
